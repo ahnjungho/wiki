@@ -1,5 +1,5 @@
 <h1>pages</h1>
 
 {% for document in documents %}
-  {{ document.title }}
+  <p><a href="{% url 'detail' document.slug %}">  {{ document.title }}</a></p>
 {% endfor %}
