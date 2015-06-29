@@ -1,3 +1,8 @@
 from django.contrib import admin
+from pages.models import Document
 
-# Register your models here.
+
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'publish_date', 'update_date')
+
+admin.site.register(Document, DocumentAdmin)
