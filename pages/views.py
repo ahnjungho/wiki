@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .models import Document
 
-# Create your views here.
+def index(request):
+    documents = Document.objects.order_by('-update_date')[:10]
+    context = {'documents': documents}
+    return render(request, 'pages/index.html', context)
