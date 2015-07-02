@@ -20,6 +20,6 @@ application = get_wsgi_application()
 # Production
 ###############################################################################
 
-if os.environ['ENV_STATE'] == 'production':
+if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
     from whitenoise.django import DjangoWhiteNoise
     application = DjangoWhiteNoise(application)

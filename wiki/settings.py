@@ -107,7 +107,7 @@ STATIC_URL = '/static/'
 # Production
 ###############################################################################
 
-if os.environ['ENV_STATE'] == 'production':
+if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
     # Database
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
