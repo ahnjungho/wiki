@@ -3,14 +3,13 @@ from django.test import TestCase
 from pages.models import Document
 
 
-
 class DocumentModelTest(TestCase):
     def test_saving_and_retrieving_documents(self):
         user = User(username='abc', password='bbb')
         user.save()
-        document1 = Document(title='abcd', user=user)
+        document1 = Document(title='abcd', slug='a', user=user)
         document1.save()
-        document2 = Document(title='abcde', user=user)
+        document2 = Document(title='abcde', slug='b', user=user)
         document2.save()
 
         saved_documets = Document.objects.all()
