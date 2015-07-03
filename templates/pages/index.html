@@ -1,5 +1,11 @@
-<h1>pages</h1>
+{% extends 'base.html' %}
 
-{% for document in documents %}
-  <p><a href="{% url 'detail' document.slug %}">  {{ document.title }}</a></p>
-{% endfor %}
+{% block content %}
+
+  <h1>pages</h1>
+
+  {% for document in documents %}
+    <p><a href="{% url 'detail' document.slug %}">  {{ document.title }}</a></p>
+  {% endfor %}
+
+{% endblock %}
