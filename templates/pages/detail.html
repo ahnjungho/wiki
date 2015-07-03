@@ -1,3 +1,8 @@
-<h1>{{ document.title }}</h1>
+{% extends 'base.html' %}
 
-{{ document.content }}
+{% block content %}
+
+  <h1>{{ document.title }}</h1>
+  {{ document.content }}
+
+{% endblock %}
