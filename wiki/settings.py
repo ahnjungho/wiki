@@ -101,6 +101,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 ###############################################################################
@@ -108,6 +111,8 @@ STATIC_URL = '/static/'
 ###############################################################################
 
 if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
+    DEBUG = False
+
     # Database
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
