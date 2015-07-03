@@ -121,10 +121,5 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
     # Static files
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
-    STATIC_URL = '/static/'
-
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
 
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
