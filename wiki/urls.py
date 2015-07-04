@@ -20,5 +20,5 @@ from pages import views as pages_views
 urlpatterns = [
     url(r'^$', pages_views.index, name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^(?P<slug>[a-zA-Z0-9]+)/$', pages_views.detail, name='detail'),
+    url(r'^(?P<slug>[a-zA-Z0-9_-]+)/$', pages_views.detail, name='detail'),
 ]

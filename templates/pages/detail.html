@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ document.title }} - {% endblock %}
+
 {% block content %}
 
-  <h1>{{ document.title }}</h1>
-  {{ document.content }}
+<h1>{{ document.title }}</h1>
+<p>updated at {{ document.update_date | date:'Y-m-d' }}</p>
+{{ document.content }}
 
 {% endblock %}
