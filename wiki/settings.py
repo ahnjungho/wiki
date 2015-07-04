@@ -118,6 +118,9 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
     DATABASES['default'] = dj_database_url.config()
     DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
+    # Allow all host headers
+    ALLOWED_HOSTS = ['*']
+
     # Static files
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
