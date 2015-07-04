@@ -1,5 +1,7 @@
+import markdown
 from django.db import models
 from django.contrib.auth.models import User
+
 
 class Document(models.Model):
     content = models.TextField()
@@ -9,3 +11,5 @@ class Document(models.Model):
     publish_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 
+    def markdown(self):
+        return markdown.markdown(self.content)
