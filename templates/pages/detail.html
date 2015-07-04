@@ -6,6 +6,7 @@
 
 <h1>{{ document.title }}</h1>
 <p>updated at {{ document.update_date | date:'Y-m-d' }}</p>
-{{ document.content }}
+
+{{ document.markdown|safe }}
 
 {% endblock %}
