@@ -1,6 +1,10 @@
 from django.contrib.auth.models import User
+from django.core.urlresolvers import resolve
+from django.http import HttpRequest
+from django.template.loader import render_to_string
 from django.test import TestCase
 from pages.models import Document
+from pages.views import index as index_page
 
 
 class DocumentModelTest(TestCase):
@@ -19,3 +23,15 @@ class DocumentModelTest(TestCase):
         saved_document2 = saved_documets[1]
         self.assertEqual(saved_document1.title, 'abcd')
         self.assertEqual(saved_document2.title, 'abcde')
+
+
+class IndexPageTest(TestCase):
+    def test_root_url_resolves_to_index_page_view(self):
+        found = resolve('/')
+        self.assertEqual(found.func, index_page)
+
+    def test_request_index_page_retunrs_correct_html(self):
+        request = HttpRequest()
+        response = index_page(request)
+        expected_html = render_to_string('pages/index.html')
+        self.assertEqual(response.content.decode(), expected_html)

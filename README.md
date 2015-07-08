@@ -6,13 +6,30 @@
 
 - Python 3.4.3
 
-## Test
+## Install & Run
 
-```shell
+``` shell
+$ git clone git@github.com:ahnjungho/wiki.git
+$ cd wiki
 $ pyvenv venv
 $ . venv/bin/activate
 $ pip install -r requirements.txt
-$ coveage run --source='.' manage.py test
+$ python manage.py migrate
+$ python manage.py runserver
+```
+
+## Test
+
+### Django Test
+
+``` shell
+$ python manage.py test
+```
+
+### Coverage.py
+
+``` shell
+$ coveage run --source='.' --omit='./venv/*.*' manage.py test
 $ coverage html
 $ open htmlcov/index.html
 ```
