@@ -1,9 +1,14 @@
 coverage==3.7.1
 dj-database-url==0.3.0
 Django==1.8.2
+django-appconf==1.0.1
+django-compressor==1.5
+django-libsass==0.3
 django-postgrespool==0.3.0
 gunicorn==19.3.0
+libsass==0.8.2
 Markdown==2.6.2
 psycopg2==2.6.1
+six==1.9.0
 SQLAlchemy==1.0.6
 whitenoise==2.0.1
