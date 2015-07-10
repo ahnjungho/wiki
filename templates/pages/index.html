@@ -5,7 +5,10 @@
   <h2>Recently Updated Pages</h2>
 
   {% for document in documents %}
-    <p><a href="{% url 'detail' document.slug %}">  {{ document.title }}</a>  {{ document.update_date | date:'Y-m-d' }}</p>
+    <p>
+      {% if document.category %}[{{ document.category.name }}]{% endif %}
+      <a href="{% url 'detail' document.slug %}">  {{ document.title }}</a>  {{ document.update_date | date:'Y-m-d' }}
+    </p>
   {% endfor %}
 
 {% endblock %}
