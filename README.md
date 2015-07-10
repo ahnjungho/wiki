@@ -1,5 +1,7 @@
 # Wiki
 
+[![Build Status](https://travis-ci.org/ahnjungho/wiki.svg?branch=master)](https://travis-ci.org/ahnjungho/wiki)
+
 [Personal wiki site](http://wiki.ahnjungho.org)
 
 ## Requirements
@@ -29,7 +31,7 @@ $ python manage.py test
 ### Coverage.py
 
 ``` shell
-$ coveage run --source='.' --omit='./venv/*.*' manage.py test
+$ coverage run --source='.' --omit='./venv/*.*' manage.py test
 $ coverage html
 $ open htmlcov/index.html
 ```
