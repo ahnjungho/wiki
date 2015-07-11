@@ -155,7 +155,7 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
 
     # Cache
     from urllib.parse import urlparse
-    redis_url = urlparse.urlparse(os.environ.get('REDIS_URL'))
+    redis_url = urlparse(os.environ.get('REDIS_URL'))
     CACHES = {
         "default": {
             "BACKEND": "redis_cache.RedisCache",
