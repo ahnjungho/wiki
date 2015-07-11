@@ -154,7 +154,7 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
     COMPRESS_ENABLED = True
 
     # Cache
-    import urlparse
+    from urllib.parse import urlparse
     redis_url = urlparse.urlparse(os.environ.get('REDIS_URL'))
     CACHES = {
         "default": {
