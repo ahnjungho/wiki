@@ -152,17 +152,3 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
 
     # Django-Compressor
     COMPRESS_ENABLED = True
-
-    # Cache
-    from urllib.parse import urlparse
-    redis_url = urlparse(os.environ.get('REDIS_URL'))
-    CACHES = {
-        "default": {
-            "BACKEND": "redis_cache.RedisCache",
-            "LOCATION": "{0}:{1}".format(redis_url.hostname, redis_url.port),
-            "OPTIONS": {
-                "PASSWORD": redis_url.password,
-                "DB": 0,
-            }
-        }
-    }
