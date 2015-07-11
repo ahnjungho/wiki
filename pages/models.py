@@ -16,7 +16,7 @@ class Document(models.Model):
     title = models.CharField(max_length=200)
     slug = models.CharField(max_length=200, unique=True)
     user = models.ForeignKey(User)
-    category = models.ForeignKey(Category, null=True, default=None)
+    category = models.ForeignKey(Category, null=True, default=None, blank=True)
     publish_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 

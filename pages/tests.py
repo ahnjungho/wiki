@@ -75,7 +75,7 @@ class DocumentModelTest(TestCase):
 class IndexPageTest(TestCase):
     def test_root_url_resolves_to_index_page_view(self):
         found = resolve('/')
-        self.assertEqual(found.func, index_page)
+        self.assertEqual(found.func.__wrapped__, index_page)
 
     def test_request_index_page_retunrs_correct_html(self):
         request = HttpRequest()

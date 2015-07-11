@@ -5,10 +5,12 @@ django-appconf==1.0.1
 django-compressor==1.5
 django-libsass==0.3
 django-postgrespool==0.3.0
+django-redis-cache==1.1.0
 gunicorn==19.3.0
 libsass==0.8.2
 Markdown==2.6.2
 psycopg2==2.6.1
+redis==2.10.3
 six==1.9.0
 SQLAlchemy==1.0.6
 whitenoise==2.0.1
