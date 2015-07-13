@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^$', cache_page(60)(pages_views.index), name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^(?P<slug>[a-zA-Z0-9_-]+)/$', pages_views.detail, name='detail'),
+    url(r'^category/(?P<slug>[a-zA-Z0-9_-]+)/$',
+        pages_views.category,
+        name='category'),
 ]

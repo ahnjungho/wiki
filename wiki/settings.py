@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'pages',
     'compressor',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -152,3 +153,4 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
 
     # Django-Compressor
     COMPRESS_ENABLED = True
+    COMPRESS_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
