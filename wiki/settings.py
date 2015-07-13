@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'pages',
     'compressor',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
