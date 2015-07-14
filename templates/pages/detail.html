@@ -6,7 +6,7 @@
 
 <h1>{{ document.title }}</h1>
 {% if document.category.name %}
-  <p>Category: {{ document.category }}</p>
+  <p>Category: <a href="{% url 'category' document.category.slug %}">{{ document.category }}</a></p>
 {% endif %}
 <p>updated at {{ document.update_date | date:'Y-m-d' }}</p>
 
