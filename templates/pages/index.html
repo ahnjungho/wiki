@@ -7,24 +7,11 @@
   <ul>
     {% for document in recent_documents %}
       <li>
-        <p>
           <a href="{% url 'detail' document.slug %}">  {{ document.title }}</a><br>
-          {% if document.category %}category: {{ document.category.name }}, {% endif %}
+          {% if document.category %} Category:
+            <a href="{% url 'category' document.category.slug %}">{{ document.category.name }}</a><br>
+          {% endif %}
           updated at {{ document.update_date | date:'Y-m-d' }}
-        </p>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <h2>Recently Created Pages</h2>
-
-  <ul>
-    {% for document in new_documents %}
-      <li>
-        <p>
-          <a href="{% url 'detail' document.slug %}">  {{ document.title }}</a><br>
-          {% if document.category %}category: {{ document.category.name }}, {% endif %}
-          created at {{ document.publish_date | date:'Y-m-d' }}
         </p>
       </li>
     {% endfor %}

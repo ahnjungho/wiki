@@ -130,6 +130,9 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+COMPRESS_OUTPUT_DIR = ''
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
 
 ###############################################################################
 # Production
