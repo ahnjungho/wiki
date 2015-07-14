@@ -130,10 +130,6 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-COMPRESS_OUTPUT_DIR = ''
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-
 ###############################################################################
 # Production
 ###############################################################################
@@ -156,4 +152,5 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
 
     # Django-Compressor
     COMPRESS_ENABLED = True
+    COMPRESS_OFFLINE = True
     COMPRESS_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
