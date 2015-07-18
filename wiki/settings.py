@@ -38,8 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
-    'compressor',
     'django_extensions',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -120,15 +120,6 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = 'staticfiles'
 
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-)
 
 ###############################################################################
 # Production
@@ -149,8 +140,3 @@ if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-    # Django-Compressor
-    COMPRESS_ENABLED = True
-    COMPRESS_OFFLINE = True
-    COMPRESS_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
