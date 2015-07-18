@@ -4,12 +4,14 @@
 
 {% block content %}
 
-<h1>{{ document.title }}</h1>
-{% if document.category.name %}
-  <p>Category: <a href="{% url 'category' document.category.slug %}">{{ document.category }}</a></p>
-{% endif %}
-<p>updated at {{ document.update_date | date:'Y-m-d' }}</p>
+<div class="markdown">
+  <h1>{{ document.title }}</h1>
+  {% if document.category.name %}
+    <p>Category: <a href="{% url 'category' document.category.slug %}">{{ document.category }}</a></p>
+  {% endif %}
+  <p>updated at {{ document.update_date | date:'Y-m-d' }}</p>
 
-{{ document.markdown|safe }}
+  {{ document.markdown|safe }}
+</div>
 
 {% endblock %}

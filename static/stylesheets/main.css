@@ -1,3 +1,34 @@
+body {
+  line-height: 1.7; }
+
 a .fa-external-link {
   font-size: 65%;
   margin-left: 0.2em; }
+
+.markdown h1 {
+  font-size: 29px; }
+
+.markdown h2 {
+  font-size: 23px; }
+
+.markdown h3 {
+  font-size: 19px; }
+
+.markdown h4 {
+  font-size: 16px; }
+
+.markdown h5 {
+  font-size: 13px; }
+
+.markdown h6 {
+  font-size: 13px;
+  color: #777; }
+
+.markdown blockquote {
+  border-left: 5px solid #ddd;
+  font-size: inherit;
+  padding-left: 12px;
+  padding-top: 0;
+  padding-bottom: 0; }
+
+/*# sourceMappingURL=main.css.map */
