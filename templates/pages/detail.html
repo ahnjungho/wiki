@@ -6,10 +6,14 @@
 
 <div class="markdown">
   <h1>{{ document.title }}</h1>
-  {% if document.category.name %}
-    <p>Category: <a href="{% url 'category' document.category.slug %}">{{ document.category }}</a></p>
-  {% endif %}
-  <p>updated at {{ document.update_date | date:'Y-m-d' }}</p>
+
+  <p class="info">
+    Updated at {{ document.update_date | date:'M d, Y' }}
+    {% if document.category.name %}
+      <span>|</span>
+      Category: <a href="{% url 'category' document.category.slug %}">{{ document.category }}</a>
+    {% endif %}
+  </p>
 
   {{ document.markdown|safe }}
 </div>

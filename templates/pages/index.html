@@ -4,15 +4,19 @@
 
   <h2>Recently Updated Pages</h2>
 
-  <ul>
+  <ul class="page-list">
     {% for document in recent_documents %}
       <li>
-          <a href="{% url 'detail' document.slug %}">  {{ document.title }}</a><br>
-          {% if document.category %} Category:
-            <a href="{% url 'category' document.category.slug %}">{{ document.category.name }}</a><br>
-          {% endif %}
-          updated at {{ document.update_date | date:'Y-m-d' }}
-        </p>
+        <h5>
+          <a href="{% url 'detail' document.slug %}">{{ document.title }}</a>
+          <small>{{ document.update_date | date:'M d, Y' }}</small>
+        </h5>
+
+        {% if document.category %}
+          <p>
+            Category: <a href="{% url 'category' document.category.slug %}">{{ document.category.name }}</a>
+          </p>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

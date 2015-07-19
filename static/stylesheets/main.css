@@ -5,6 +5,18 @@ a .fa-external-link {
   font-size: 65%;
   margin-left: 0.2em; }
 
+.page-list li h5 {
+  margin-bottom: 0; }
+  .page-list li h5 small {
+    margin-left: 10px; }
+
+.page-list li p {
+  font-size: 13px;
+  color: #333; }
+
+.markdown .info {
+  margin-bottom: 35px; }
+
 .markdown h1 {
   font-size: 29px; }
 
