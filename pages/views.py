@@ -1,7 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render
-from .models import Category
-from .models import Document
+from .models import Category, Document, Tag
 
 
 def index(request):
@@ -27,3 +26,11 @@ def category(request, slug):
     except:
         raise Http404("Category does not exist")
     return render(request, 'pages/category.html', {'category': category})
+
+
+def tag(request, slug):
+    try:
+        tag = Tag.objects.get(slug=slug)
+    except:
+        raise Http404("Tag does not exist")
+    return render(request, 'pages/tag.html', {'tag': tag})

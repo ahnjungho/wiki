@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^category/(?P<slug>[a-zA-Z0-9_-]+)/$',
         pages_views.category,
         name='category'),
+    url(r'^tag/(?P<slug>[a-zA-Z0-9_-]+)/$', pages_views.tag, name='tag'),
 ]
