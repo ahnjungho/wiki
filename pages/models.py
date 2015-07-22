@@ -11,12 +11,21 @@ class Category(models.Model):
         return self.name
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class Document(models.Model):
     content = models.TextField()
     title = models.CharField(max_length=200)
     slug = models.CharField(max_length=200, unique=True)
     user = models.ForeignKey(User)
     category = models.ForeignKey(Category, null=True, default=None, blank=True)
+    tags = models.ManyToManyField(Tag, null=True, default=None, blank=True)
     publish_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 

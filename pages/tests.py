@@ -3,8 +3,7 @@ from django.core.urlresolvers import resolve
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 from django.test import TestCase
-from pages.models import Category
-from pages.models import Document
+from pages.models import Category, Document, Tag
 from pages.views import index as index_page
 
 
@@ -70,6 +69,25 @@ class DocumentModelTest(TestCase):
         saved_document1 = Document.objects.first()
 
         self.assertEqual(saved_document1.category.name, 'Book')
+
+    def test_document_tags(self):
+        user = User(username='abc', password='bbb')
+        user.save()
+        tag1 = Tag(name='book', slug='book')
+        tag1.save()
+        tag2 = Tag(name='programming', slug='programming')
+        tag2.save()
+        document = Document(title='abcd',
+                             slug='a',
+                             user=user,
+                             content='abcd')
+        document.save()
+        document.tags.add(tag1)
+        document.tags.add(tag2)
+
+        saved_document = Document.objects.first()
+
+        self.assertEqual(len(saved_document.tags.all()), 2)
 
 
 class IndexPageTest(TestCase):

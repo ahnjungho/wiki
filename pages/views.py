@@ -1,15 +1,12 @@
 from django.http import Http404
 from django.shortcuts import render
-from .models import Category
-from .models import Document
+from .models import Category, Document, Tag
 
 
 def index(request):
-    new_documents = Document.objects.order_by('-publish_date')[:10]
     recent_documents = Document.objects.order_by('-update_date')[:10]
 
-    context = {'new_documents': new_documents,
-               'recent_documents': recent_documents}
+    context = {'recent_documents': recent_documents}
     return render(request, 'pages/index.html', context)
 
 
@@ -27,3 +24,11 @@ def category(request, slug):
     except:
         raise Http404("Category does not exist")
     return render(request, 'pages/category.html', {'category': category})
+
+
+def tag(request, slug):
+    try:
+        tag = Tag.objects.get(slug=slug)
+    except:
+        raise Http404("Tag does not exist")
+    return render(request, 'pages/tag.html', {'tag': tag})

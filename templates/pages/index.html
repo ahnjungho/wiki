@@ -2,19 +2,27 @@
 
 {% block content %}
 
-  <h2>Recently Updated Pages</h2>
+  <h3>Recently Updated Pages</h3>
 
   <ul class="page-list">
     {% for document in recent_documents %}
-      <li>
+      <li class="page">
         <h5>
           <a href="{% url 'detail' document.slug %}">{{ document.title }}</a>
           <small>{{ document.update_date | date:'M d, Y' }}</small>
         </h5>
 
         {% if document.category %}
-          <p>
+          <p class="category">
             Category: <a href="{% url 'category' document.category.slug %}">{{ document.category.name }}</a>
+          </p>
+        {% endif %}
+        {% if document.tags.all%}
+          <p class="tags">
+            Tag:
+            {% for tag in document.tags.all %}
+              <a href="{% url 'tag' tag.slug %}">{{ tag.name }}</a>
+            {% endfor %}
           </p>
         {% endif %}
       </li>
