@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <h2>Recently Updated Pages</h2>
+  <h3>Recently Updated Pages</h3>
 
   <ul class="page-list">
     {% for document in recent_documents %}
@@ -13,7 +13,7 @@
         </h5>
 
         {% if document.category %}
-          <p>
+          <p class="category">
             Category: <a href="{% url 'category' document.category.slug %}">{{ document.category.name }}</a>
           </p>
         {% endif %}

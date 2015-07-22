@@ -4,11 +4,9 @@ from .models import Category, Document, Tag
 
 
 def index(request):
-    new_documents = Document.objects.order_by('-publish_date')[:10]
     recent_documents = Document.objects.order_by('-update_date')[:10]
 
-    context = {'new_documents': new_documents,
-               'recent_documents': recent_documents}
+    context = {'recent_documents': recent_documents}
     return render(request, 'pages/index.html', context)
 
 
