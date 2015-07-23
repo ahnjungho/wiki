@@ -127,6 +127,7 @@ STATIC_ROOT = 'staticfiles'
 
 if 'ENV_STATE' in os.environ and os.environ['ENV_STATE'] == 'production':
     DEBUG = False
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
     # Database
     import dj_database_url
